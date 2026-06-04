@@ -35,37 +35,41 @@
 html{font-size:14px}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;transition:background .2s,color .2s}
 
-/* LOGIN */
-#login-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#0d2b1e 0%,#1a3d2e 50%,#0a1f15 100%)}
-.login-wrap{display:flex;gap:16px;width:860px;max-width:97vw;max-height:96vh;align-items:flex-start}
-.login-panel{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.38);overflow:hidden;display:flex;flex-direction:column;max-height:92vh;overflow-y:auto}
-[data-theme="dark"] .login-panel{background:#1c1b19;border:1px solid #333}
-.login-panel-left{flex:1.1}
-.login-panel-right{flex:0.9}
-.login-header{background:linear-gradient(135deg,#1a3d2e,#2d6a4f);padding:22px 24px;display:flex;align-items:center;gap:14px}
-.login-header .emoji{font-size:32px;flex-shrink:0}
-.login-header .school{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px}
-.login-header .title{font-size:16px;font-weight:600;color:#fff;line-height:1.3}
-.login-body{padding:20px;overflow-y:auto}
-.login-section-lbl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.login-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--border);border-radius:11px;cursor:pointer;background:var(--surface2);transition:all .15s;margin-bottom:7px}
-.login-opt:hover{border-color:var(--accent);background:var(--accent-light)}
-.login-opt:hover .login-opt-arrow{color:var(--accent)}
+/* LOGIN — minimalista, unificado, tons claros de azul e verde */
+#login-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#e8f4f8 0%,#eaf6ef 50%,#e3f0ec 100%);overflow:auto}
+#login-screen::before{content:"";position:absolute;top:-120px;left:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(135,206,235,.35),transparent 70%);pointer-events:none}
+#login-screen::after{content:"";position:absolute;bottom:-140px;right:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(144,238,144,.32),transparent 70%);pointer-events:none}
+.login-wrap{position:relative;width:440px;max-width:96vw;max-height:94vh;display:flex;flex-direction:column}
+.login-panel{background:rgba(255,255,255,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);border-radius:24px;box-shadow:0 12px 40px rgba(60,120,100,.12),0 2px 8px rgba(60,120,140,.08);overflow:hidden;display:flex;flex-direction:column;max-height:94vh}
+[data-theme="dark"] .login-panel{background:rgba(28,27,25,.82);border-color:rgba(255,255,255,.08)}
+.login-brand{padding:28px 28px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.login-brand .school-logo{width:64px;height:64px;object-fit:contain}
+.login-brand .school{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);font-weight:600}
+.login-brand .title{font-size:18px;font-weight:600;color:var(--text);line-height:1.3}
+.login-tabs{display:flex;gap:4px;padding:0 22px;margin-bottom:6px}
+.login-tab{flex:1;padding:9px 8px;font-size:11px;font-weight:600;letter-spacing:.04em;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:var(--font)}
+.login-tab.active{color:#2d6a4f;border-bottom-color:#7ec4a8}
+.login-tab:hover:not(.active){color:var(--text2)}
+.login-body{padding:18px 22px 24px;overflow-y:auto}
+.login-pane{display:none}
+.login-pane.active{display:block;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.login-opt{display:flex;align-items:center;gap:11px;padding:11px 13px;border:1px solid rgba(125,180,160,.25);border-radius:13px;cursor:pointer;background:rgba(234,246,239,.45);transition:all .18s;margin-bottom:7px}
+.login-opt:hover{background:rgba(190,225,210,.55);border-color:rgba(125,180,160,.55)}
 .login-opt .av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
-.login-opt .ln{font-size:12px;font-weight:600;color:var(--text)}
-.login-opt .lc{font-size:10px;color:var(--text3)}
-.login-opt-arrow{margin-left:auto;color:var(--text3);font-size:12px;transition:color .15s}
-.pub-btn{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:12px;background:var(--surface2);color:var(--text);font-family:var(--font);font-size:13px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .15s;margin-bottom:10px;text-align:left}
-.pub-btn:hover{transform:translateX(3px)}
-.pub-btn.gestores{border-color:#1a5276}
-.pub-btn.gestores:hover{background:var(--blue-light);border-color:var(--blue)}
-.pub-btn.escola{border-color:#7d5a1e}
-.pub-btn.escola:hover{background:var(--amber-light);border-color:var(--amber)}
-.pub-btn .pub-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.pub-btn .pub-label{font-size:12px;font-weight:600;color:var(--text)}
-.pub-btn .pub-desc{font-size:10px;color:var(--text3);margin-top:1px}
-.pub-btn .pub-arr{margin-left:auto;color:var(--text3);font-size:14px}
-.login-hint{font-size:10px;color:var(--text3);text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.login-opt .ln{font-size:12.5px;font-weight:600;color:var(--text)}
+.login-opt .lc{font-size:10.5px;color:var(--text3)}
+.login-opt-arrow{margin-left:auto;color:var(--text3);font-size:13px;transition:transform .18s}
+.login-opt:hover .login-opt-arrow{transform:translateX(3px);color:#2d6a4f}
+.pub-btn{width:100%;padding:14px 16px;border:1px solid rgba(135,200,225,.3);border-radius:13px;background:rgba(232,244,248,.5);color:var(--text);font-family:var(--font);font-size:13px;cursor:pointer;display:flex;align-items:center;gap:11px;transition:all .18s;margin-bottom:9px;text-align:left}
+.pub-btn:hover{background:rgba(200,228,240,.6);border-color:rgba(135,200,225,.6)}
+.pub-btn.escola{border-color:rgba(150,210,180,.35);background:rgba(234,246,239,.5)}
+.pub-btn.escola:hover{background:rgba(200,232,215,.6);border-color:rgba(125,190,160,.6)}
+.pub-btn .pub-label{font-size:13px;font-weight:600;color:var(--text)}
+.pub-btn .pub-desc{font-size:10.5px;color:var(--text3);margin-top:2px;line-height:1.4}
+.pub-btn .pub-arr{margin-left:auto;color:var(--text3);font-size:13px;transition:transform .18s}
+.pub-btn:hover .pub-arr{transform:translateX(3px)}
+.login-hint{font-size:10.5px;color:var(--text3);text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid rgba(125,180,160,.18)}
 
 /* PASSWORD OVERLAY */
 #pw-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center}
@@ -260,58 +264,46 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--surface2)}
 
 <!-- LOGIN -->
 <div id="login-screen">
-  <div class="login-wrap">
-
-    <!-- LEFT: Gestores -->
-    <div class="login-panel login-panel-left">
-      <div class="login-header">
-        <img src="" class="school-logo" alt="Logo" style="width:56px;height:56px;object-fit:contain;border-radius:8px;background:#fff;padding:3px;flex-shrink:0">
+<div class="login-wrap">
+    <div class="login-panel">
+      <div class="login-brand">
+        <img src="" class="school-logo" alt="Logo EE Prof. Luiz Simioni Sobrinho">
         <div>
           <div class="school">EE Prof. Luiz Simioni Sobrinho</div>
-          <div class="title">Acesso da Equipe Gestora</div>
+          <div class="title">Bem-vindo à Agenda Escolar</div>
         </div>
       </div>
-      <div class="login-body">
-        <div class="login-section-lbl">🔒 Selecione seu perfil e insira a senha</div>
-        <div id="login-opts"></div>
-        <div class="login-hint">Somente membros da equipe gestora</div>
-      </div>
-    </div>
 
-    <!-- RIGHT: Acesso Público -->
-    <div class="login-panel login-panel-right">
-      <div class="login-header" style="background:linear-gradient(135deg,#0a2840,#1a5276)">
-        <img src="" class="school-logo" alt="Logo EE Prof. Luiz Simioni Sobrinho" style="width:56px;height:56px;object-fit:contain;border-radius:8px;background:#fff;padding:3px;flex-shrink:0">
-        <div>
-          <div class="school">EE Prof. Luiz Simioni Sobrinho</div>
-          <div class="title">Acesso Público</div>
+      <div class="login-tabs" role="tablist">
+        <button type="button" class="login-tab active" data-pane="pane-gestor" onclick="switchLoginTab(this)">Equipe Gestora</button>
+        <button type="button" class="login-tab" data-pane="pane-publico" onclick="switchLoginTab(this)">Acesso Público</button>
+      </div>
+
+      <div class="login-body">
+        <div id="pane-gestor" class="login-pane active">
+          <div id="login-opts"></div>
+          <div class="login-hint">Somente membros da equipe gestora</div>
+        </div>
+
+        <div id="pane-publico" class="login-pane">
+          <button type="button" class="pub-btn gestores" onclick="loginComunidade()">
+            <div>
+              <div class="pub-label">Agenda dos Gestores</div>
+              <div class="pub-desc">Veja a agenda pública e solicite agendamentos</div>
+            </div>
+            <span class="pub-arr">→</span>
+          </button>
+          <button type="button" class="pub-btn escola" onclick="loginAgendaEscola()">
+            <div>
+              <div class="pub-label">Agenda da Escola</div>
+              <div class="pub-desc">Eventos, atividades e calendário escolar</div>
+            </div>
+            <span class="pub-arr">→</span>
+          </button>
+          <div class="login-hint">Acesso público não requer senha</div>
         </div>
       </div>
-      <div class="login-body">
-        <div class="login-section-lbl">📖 Escolha o portal que deseja acessar</div>
-
-        <button type="button" class="pub-btn gestores" onclick="loginComunidade()">
-          <div class="pub-icon" style="background:#eaf2f8">👥</div>
-          <div>
-            <div class="pub-label">Acesso Público — Agenda Gestores</div>
-            <div class="pub-desc">Veja a agenda pública da equipe gestora, solicite agendamentos</div>
-          </div>
-          <span class="pub-arr">▶</span>
-        </button>
-
-        <button type="button" class="pub-btn escola" onclick="loginAgendaEscola()">
-          <div class="pub-icon" style="background:#fdf3e0">📆</div>
-          <div>
-            <div class="pub-label">Acesso Público — Agenda da Escola</div>
-            <div class="pub-desc">Eventos, atividades e calendário escolar</div>
-          </div>
-          <span class="pub-arr">▶</span>
-        </button>
-
-        <div class="login-hint">Acesso público não requer senha</div>
-      </div>
     </div>
-
   </div>
 </div>
 
@@ -356,8 +348,8 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--surface2)}
     </div>
     <div class="nav-section">
       <div class="nav-label">Comunidade</div>
-      <div class="nav-item" onclick="goto('transparencia')"><span class="icon">🌐</span>Portal Público</div>
-      <div class="nav-item" onclick="goto('agenda-publica')"><span class="icon">📆</span>Agenda Pública</div>
+      <div class="nav-item" onclick="goto('transparencia')"><span class="icon">🌐</span>Agenda Gestores</div>
+      <div class="nav-item" onclick="goto('agenda-publica')"><span class="icon">📆</span>Agenda Escola</div>
       <div class="nav-item" onclick="goto('timeline')"><span class="icon">🕐</span>Linha do Tempo</div>
     </div>
     <div class="sidebar-bottom">
@@ -397,7 +389,7 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--surface2)}
             <div class="table-title">Todas as Ações</div>
             <div class="filters">
               <select id="fil-status" onchange="renderAgenda()"><option value="">Status</option><option>Planejado</option><option>Em andamento</option><option>Concluído</option><option>Atrasado</option><option>Cancelado</option></select>
-              <select id="fil-cat" onchange="renderAgenda()"><option value="">Categoria</option><option>Governança Institucional</option><option>Gestão Pedagógica</option><option>Gestão Administrativa</option><option>Gestão de Pessoas</option><option>Alimentação Escolar</option><option>Formação e Desenvolvimento</option></select>
+              <select id="fil-cat" onchange="renderAgenda()"><option value="">Categoria</option><option>Governança Institucional</option><option>Gestão Pedagógica</option><option>Gestão Administrativa</option><option>Gestão de Pessoas</option><option>Alimentação Escolar</option><option>Formação e Desenvolvimento</option><option>Rotinas da Gestão Escolar</option></select>
               <select id="fil-resp" onchange="renderAgenda()"><option value="">Responsável</option><option>Silvana Rodrigues</option><option>Gisele de Souza</option><option>Civaldo Guilherme</option><option>Ricardo Lopes</option><option>Raffael Lima</option></select>
             </div>
           </div>
@@ -474,7 +466,7 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--surface2)}
             <div class="field"><label>Hora fim</label><input type="time" id="f-hf"></div>
           </div>
           <div class="form-grid" style="margin-bottom:14px">
-            <div class="field"><label>Categoria</label><select id="f-cat" onchange="updateSubcat()"><option value="">Selecionar...</option><option>Governança Institucional</option><option>Gestão Pedagógica</option><option>Gestão Administrativa</option><option>Gestão de Pessoas</option><option>Alimentação Escolar</option><option>Formação e Desenvolvimento</option></select></div>
+            <div class="field"><label>Categoria</label><select id="f-cat" onchange="updateSubcat()"><option value="">Selecionar...</option><option>Governança Institucional</option><option>Gestão Pedagógica</option><option>Gestão Administrativa</option><option>Gestão de Pessoas</option><option>Alimentação Escolar</option><option>Formação e Desenvolvimento</option><option>Rotinas da Gestão Escolar</option></select></div>
             <div class="field"><label>Subcategoria</label><select id="f-subcat"><option value="">—</option></select></div>
             <div class="field"><label>Responsável</label><select id="f-resp"><option value="">Selecionar...</option><option>Silvana Rodrigues</option><option>Gisele de Souza</option><option>Civaldo Guilherme</option><option>Ricardo Lopes</option><option>Raffael Lima</option></select></div>
             <div class="field"><label>Local</label><input type="text" id="f-local" placeholder="Ex: Sala de reuniões"></div>
@@ -512,6 +504,15 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--surface2)}
                 <div class="field"><label>Data fim</label><input type="date" id="f-rep-end"></div>
               </div>
               <div style="font-size:10px;color:var(--text3);margin-top:8px">Uma ação será criada para cada ocorrência no período selecionado.</div>
+            </div>
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:10px;margin-top:14px">
+              <input type="checkbox" id="f-repeat-month" onchange="toggleRepeatMonth()" style="width:auto">
+              <span style="font-weight:600;color:var(--text)">🗓️ Replicar mensalmente</span>
+            </label>
+            <div id="repeat-month-panel" style="display:none;background:var(--surface2);border-radius:var(--radius);padding:14px">
+              <div style="font-size:11px;color:var(--text2);margin-bottom:8px;font-weight:600">Selecione os meses para replicar esta ação</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px" id="f-month-btns"></div>
+              <div style="font-size:10px;color:var(--text3);margin-top:8px">A ação será criada para cada mês selecionado, no mesmo dia e horário da data informada acima.</div>
             </div>
           </div>
           <div style="display:flex;gap:10px">
@@ -866,6 +867,7 @@ const SUBCATS={
   'Gestão de Pessoas':['Reunião PAAET','Reunião PAAC','Alinhamento PAAET','Alinhamento PAAC','Avaliação de Desempenho','Formação Continuada','Mediação de Conflitos','Atendimento a Servidores'],
   'Alimentação Escolar':['Avaliação da Cozinha','Conferência da Merenda','Baixa Diária','Estoque','Recebimento de Gêneros','Controle de Desperdício','Qualidade dos Alimentos'],
   'Formação e Desenvolvimento':['Pesquisa','Estudos','Leitura Técnica','Formação Interna','Planejamento Estratégico','Benchmarking'],
+  'Rotinas da Gestão Escolar':['Tutoria Individual','Tutoria Coletiva','Pedagogia da Presença','Reunião de Gestão','Reunião com a Coordenação','Reunião com AOEs','Reunião com a GOE','Reunião com Proati','Acolhimento Entrada Alunos','Acolhimento Saída Alunos','Atendimento Responsáveis','Visita Supervisão de Rotina','Reunião Equipe Limpeza','Reunião Equipe Cozinha'],
 };
 const ESCOLA_CATS={
   'Gestão e Governança':['Planejamento Escolar','Conselho de Escola','Conselho de Classe','Reunião APM','Reunião Grêmio Estudantil','Reunião CONSEG','Prestação de Contas','Audiência Pública','Reunião com Diretoria de Ensino','Reunião com Supervisão','Reunião com Parceiros','Reunião com Comunidade','Reunião com Famílias','Avaliação Institucional','Autoavaliação Escolar','Monitoramento do Plano de Melhoria'],
@@ -901,17 +903,23 @@ const TL_MESES=[
   {mes:'Novembro',cor:'#1a5276',itens:['Conselho de Classe final','Resultados parciais','Recuperação intensiva']},
   {mes:'Dezembro',cor:'#2d6a4f',itens:['Encerramento do ano','Relatórios finais','Prestação de contas anual']},
 ];
-const WORK_SLOTS=['07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30'];
+const WORK_SLOTS=['07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30'];
 
 // State
 let dados=[], riscos=[], solicitacoes=[];
 let gestorAtual=null, sessionRole='', prioridade='Média', editId=null, currentSection='dashboard';
-let pendingIdx=null, selectedDays=[], calYear, calMonth, transpGestorIdx=null;
+let pendingIdx=null, selectedDays=[], selectedMonths=[], calYear, calMonth, transpGestorIdx=null;
 
 // Storage — implementado em firebase_agenda.js (load/save/saveSol/loadEscola/saveEscola)
 // As funções abaixo são stubs; a lógica real está acima com Firebase + localStorage fallback
 
 // ── LOGIN ──────────────────────────────────────────────────────────────────
+function switchLoginTab(btn){
+  document.querySelectorAll('.login-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.login-pane').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.pane).classList.add('active');
+}
 function buildLoginOpts(){
   document.getElementById('login-opts').innerHTML = GESTORES.map((g,i)=>
     `<div class="login-opt" onclick="clickGestor(${i})">
@@ -1295,6 +1303,12 @@ function salvar(){
     let cur=new Date(st),cnt=0;
     while(cur<=en&&cnt<200){if(selectedDays.includes(cur.getDay())){dados.push({...base,id:Date.now()+cnt,data:cur.toISOString().split('T')[0]});cnt++;}cur.setDate(cur.getDate()+1);}
     alert(cnt+' ação(ões) criada(s)!');
+  } else if(document.getElementById('f-repeat-month') && document.getElementById('f-repeat-month').checked){
+    if(!base.data){alert('Informe a data base para replicar mensalmente.');return;}
+    if(!selectedMonths.length){alert('Selecione ao menos um mês.');return;}
+    const baseD=new Date(base.data+'T12:00:00');const dia=baseD.getDate(),ano=baseD.getFullYear();
+    let cnt=0;selectedMonths.forEach(m=>{const dim=new Date(ano,m+1,0).getDate();const d=Math.min(dia,dim);const novaData=`${ano}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;dados.push({...base,id:Date.now()+cnt,data:novaData});cnt++;});
+    alert(cnt+' ação(ões) criada(s) mensalmente!');
   } else {
     dados.push({...base,id:Date.now()});
   }
@@ -1309,7 +1323,20 @@ function setPrio(p){
   const map={Baixa:'sel-Baixa',Média:'sel-Media',Alta:'sel-Alta','Crítica':'sel-Critica'};
   document.querySelectorAll('.prio-btn').forEach(b=>{b.className='prio-btn';if(b.textContent===p)b.className='prio-btn '+map[p];});
 }
-function toggleRepeat(){document.getElementById('repeat-panel').style.display=document.getElementById('f-repeat').checked?'block':'none';}
+function toggleRepeat(){document.getElementById('repeat-panel').style.display=document.getElementById('f-repeat').checked?'block':'none';if(document.getElementById('f-repeat').checked){const m=document.getElementById('f-repeat-month');if(m&&m.checked){m.checked=false;toggleRepeatMonth();}}}
+function toggleRepeatMonth(){
+  const on=document.getElementById('f-repeat-month').checked;
+  document.getElementById('repeat-month-panel').style.display=on?'block':'none';
+  if(on){const w=document.getElementById('f-repeat');if(w&&w.checked){w.checked=false;document.getElementById('repeat-panel').style.display='none';}
+    const wrap=document.getElementById('f-month-btns');
+    if(wrap && !wrap.dataset.init){
+      const meses=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+      wrap.innerHTML=meses.map((n,i)=>`<button type="button" class="prio-btn" onclick="toggleMonth(this,${i})">${n}</button>`).join('');
+      wrap.dataset.init='1';
+    }
+  }
+}
+function toggleMonth(btn,m){if(selectedMonths.includes(m)){selectedMonths=selectedMonths.filter(x=>x!==m);btn.className='prio-btn';}else{selectedMonths.push(m);btn.className='prio-btn sel-Alta';}}
 function toggleDay(btn,d){if(selectedDays.includes(d)){selectedDays=selectedDays.filter(x=>x!==d);btn.classList.remove('sel');}else{selectedDays.push(d);btn.classList.add('sel');}}
 
 // ── RISCOS ────────────────────────────────────────────────────────────────
