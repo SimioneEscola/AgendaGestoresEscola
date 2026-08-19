@@ -1589,7 +1589,7 @@ function loginAgendaEscola(){
 // ── AGENDA DA ESCOLA (comunidade) ────────────────────────────────────────
 function seedCalendarEvents(){
   // Versão do seed — incrementar aqui força re-seed mesmo com dados existentes
-  var SEED_VERSION = '2026-v3';
+  var SEED_VERSION = '2026-v4-pei7h';
   if(localStorage.getItem('simioni_escola_seed_v') === SEED_VERSION) return;
   // Reset e re-seed
   escolaDados = [];
@@ -1777,19 +1777,24 @@ function seedCalendarEvents(){
     {data:'2026-02-18',titulo:'PEI — Reunião Pedagógica',cat:'Gestão e Governança',subcat:'Reunião com Famílias',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-02-19',titulo:'PEI — Planejamento Escolar (19 e 20/02)',cat:'Calendário Legal e Obrigatório',subcat:'Planejamento Escolar',tipo:'Obrigatório por calendário escolar',publico:'Professores',resp:'Gestão',vis:'pub'},
     {data:'2026-02-23',titulo:'PEI — Escolha dos Tutores (23 a 27/02)',cat:'Rotinas Escolares',subcat:'Escolha dos Tutores',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
-    {data:'2026-02-23',titulo:'PEI — Apresentação consolidado Oficina Sonhos e Projeto de Vida aos professores',cat:'Gestão Pedagógica',subcat:'Acompanhamento de Projeto',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-02-09',titulo:'PEI — Apresentação consolidado Oficina Sonhos e Projeto de Vida aos professores (09 a 13/02)',cat:'Gestão Pedagógica',subcat:'Acompanhamento de Projeto',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-02-23',titulo:'PEI — Formação dos Clubes Juvenis (23 a 27/02)',cat:'Rotinas Escolares',subcat:'Formação dos Clubes Juvenis',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
 
     // ── MARÇO ─────────────────────────────────────────────────────
-    {data:'2026-03-02',titulo:'PEI — Início Oficial da Tutoria',cat:'Rotinas Escolares',subcat:'Início da Tutoria',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
-    {data:'2026-03-03',titulo:'PEI — Feirão das Eletivas (03 a 06/03)',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-02',titulo:'PEI 7h — Início Oficial da Tutoria (coletiva ≥1x/semana ~20min no almoço; individual ≥1x/mês ~7min)',cat:'Rotinas Escolares',subcat:'Início da Tutoria',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-02',titulo:'PEI — Feirão das Eletivas (02 a 11/03) — Início',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-03',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-03-04',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-03-05',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
-    {data:'2026-03-06',titulo:'PEI — Feirão das Eletivas (último dia)',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-06',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-09',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-10',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-03-11',titulo:'PEI — Feirão das Eletivas (encerramento 02 a 11/03)',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-03-09',titulo:'PEI — Início dos Clubes Juvenis (09 a 13/03)',cat:'Rotinas Escolares',subcat:'Início Clubes Juvenis',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-03-09',titulo:'PEI — Cadastro e aprovação das Eletivas na SED (09 a 13/03)',cat:'Rotinas Escolares',subcat:'Cadastro Eletivas SED',tipo:'Administrativo',publico:'Gestão',resp:'Gestão',vis:'int'},
     {data:'2026-03-13',titulo:'PEI — Início Enturmação das Eletivas na SED (13 a 20/03)',cat:'Rotinas Escolares',subcat:'Enturmação Eletivas SED',tipo:'Administrativo',publico:'Gestão',resp:'Gestão',vis:'int'},
-    {data:'2026-03-23',titulo:'PEI — Competição de Robótica EFAF (23 a 27/03)',cat:'Rotinas Escolares',subcat:'Competição de Robótica',tipo:'Pedagógico',publico:'Estudantes',resp:'Professores',vis:'pub'},
+    {data:'2026-03-23',titulo:'PEI — Competição de Robótica EM (23/03 a 10/04) — Carrinho de controle (2ª e 3ª séries)',cat:'Rotinas Escolares',subcat:'Competição de Robótica',tipo:'Pedagógico',publico:'Estudantes',resp:'Professores',vis:'pub'},
+    {data:'2026-04-10',titulo:'PEI — Encerramento Competição de Robótica EM — Carrinho de controle (2ª e 3ª séries)',cat:'Rotinas Escolares',subcat:'Competição de Robótica',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},,
 
     // ── MAIO ──────────────────────────────────────────────────────
     {data:'2026-05-04',titulo:'PEI — Início Competição de Robótica (1ª série) — 04/05 a 06/07',cat:'Rotinas Escolares',subcat:'Competição de Robótica',tipo:'Pedagógico',publico:'Estudantes',resp:'Professores',vis:'pub'},
@@ -1803,8 +1808,18 @@ function seedCalendarEvents(){
     {data:'2026-07-03',titulo:'PEI — Encerramento Culminância 1º Semestre (Eletivas, Clubes, EMA)',cat:'Rotinas Escolares',subcat:'Culminância Eletivas',tipo:'Pedagógico',publico:'Toda a escola',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-07-22',titulo:'PEI — Planejamento Escolar / Revisão do Plano de Ação (22 e 23/07)',cat:'Rotinas Escolares',subcat:'Planejamento Escolar PEI',tipo:'Obrigatório por calendário escolar',publico:'Professores',resp:'Gestão',vis:'pub'},
     {data:'2026-07-23',titulo:'PEI — Planejamento Escolar / Alinhamento para o retorno',cat:'Rotinas Escolares',subcat:'Planejamento Escolar PEI',tipo:'Obrigatório por calendário escolar',publico:'Professores',resp:'Gestão',vis:'pub'},
+    {data:'2026-07-27',titulo:'PEI — Consolidação Dinâmica 22: A escalada para o sonho (27 a 31/07) — Percurso Acolhimentos AVA-EFAPE',cat:'Rotinas Escolares',subcat:'Acolhimento Inicial',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-07-28',titulo:'PEI — Dinâmica 22: A escalada para o sonho',cat:'Rotinas Escolares',subcat:'Acolhimento Inicial',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-07-29',titulo:'PEI — Dinâmica 22: A escalada para o sonho',cat:'Rotinas Escolares',subcat:'Acolhimento Inicial',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-07-30',titulo:'PEI — Dinâmica 22: A escalada para o sonho',cat:'Rotinas Escolares',subcat:'Acolhimento Inicial',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-07-31',titulo:'PEI — Dinâmica 22: A escalada para o sonho (encerramento)',cat:'Rotinas Escolares',subcat:'Acolhimento Inicial',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
 
     // ── AGOSTO ────────────────────────────────────────────────────
+    {data:'2026-08-03',titulo:'PEI — Formação e apresentação do novo cardápio dos Clubes Juvenis/Eletivas (03 a 07/08)',cat:'Rotinas Escolares',subcat:'Formação Clubes Juvenis',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-08-04',titulo:'PEI — Formação cardápio Clubes Juvenis/Eletivas',cat:'Rotinas Escolares',subcat:'Formação Clubes Juvenis',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-08-05',titulo:'PEI — Formação cardápio Clubes Juvenis/Eletivas',cat:'Rotinas Escolares',subcat:'Formação Clubes Juvenis',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-08-06',titulo:'PEI — Formação cardápio Clubes Juvenis/Eletivas',cat:'Rotinas Escolares',subcat:'Formação Clubes Juvenis',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
+    {data:'2026-08-07',titulo:'PEI — Formação cardápio Clubes Juvenis/Eletivas (encerramento 03 a 07/08)',cat:'Rotinas Escolares',subcat:'Formação Clubes Juvenis',tipo:'Pedagógico',publico:'Professores',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-08-10',titulo:'PEI — Novo Ciclo Feirão das Eletivas (10 a 14/08)',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-08-11',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
     {data:'2026-08-12',titulo:'PEI — Feirão das Eletivas',cat:'Rotinas Escolares',subcat:'Feirão de Eletivas',tipo:'Pedagógico',publico:'Estudantes',resp:'Coordenação Pedagógica',vis:'pub'},
@@ -1860,7 +1875,7 @@ function seedCalendarEvents(){
 
 // ── AGENDA DOS GESTORES (interno) ─────────────────────────────────────────
 function seedGestoresCalendarEvents(){
-  var SEED_VERSION = '2026-v3';
+  var SEED_VERSION = '2026-v4-pei7h';
   var gi = gestorAtual ? GESTORES.indexOf(gestorAtual) : -1;
   var vKey = 'simioni_seed_v_' + gi;
   if(localStorage.getItem(vKey) === SEED_VERSION) return;
@@ -1875,16 +1890,18 @@ function seedGestoresCalendarEvents(){
     {data:'2026-02-19',hi:'07:00',hf:'17:00',categoria:'Rotinas da Gestão Escolar',subcategoria:'Reunião de Gestão',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'PEI — Planejamento Escolar (19 e 20/02)',prioridade:'Alta'},
     {data:'2026-02-23',hi:'07:30',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Escolha dos Tutores',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'PEI — Escolha dos Tutores (23 a 27/02)',prioridade:'Alta'},
     {data:'2026-02-23',hi:'13:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Formação dos Clubes Juvenis',responsavel:'Civaldo Guilherme',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'PEI — Formação dos Clubes Juvenis (23 a 27/02)',prioridade:'Alta'},
+    {data:'2026-02-09',hi:'08:00',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Projeto de Vida',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'PEI — Apresentação consolidado Oficina Sonhos e Projeto de Vida aos professores (09 a 13/02)',prioridade:'Alta'},
     {data:'2026-02-25',hi:'08:00',hf:'17:00',categoria:'Governança Institucional',subcategoria:'Conselho de Escola',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'CES — Eleição do Conselho de Escola',prioridade:'Alta'},
     // Março
-    {data:'2026-03-02',hi:'07:00',hf:'09:00',categoria:'Rotinas Escolares',subcategoria:'Início da Tutoria',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Início Oficial da Tutoria',prioridade:'Alta'},
-    {data:'2026-03-03',hi:'13:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Feirão de Eletivas',responsavel:'Civaldo Guilherme',local:'Pátio/Quadra',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Feirão das Eletivas (03 a 06/03)',prioridade:'Alta'},
+    {data:'2026-03-02',hi:'07:00',hf:'09:00',categoria:'Rotinas Escolares',subcategoria:'Início da Tutoria',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI 7h — Início Oficial da Tutoria (coletiva ≥1x/semana ~20min no almoço; individual ≥1x/mês ~7min)',prioridade:'Alta'},
+    {data:'2026-03-03',hi:'13:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Feirão de Eletivas',responsavel:'Civaldo Guilherme',local:'Pátio/Quadra',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Feirão das Eletivas (02 a 11/03)',prioridade:'Alta'},
     {data:'2026-03-09',hi:'07:00',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Início Clubes Juvenis',responsavel:'Civaldo Guilherme',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Início dos Clubes Juvenis (09 a 13/03)',prioridade:'Alta'},
     {data:'2026-03-09',hi:'14:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Cadastro Eletivas SED',responsavel:'Ricardo Lopes',local:'Secretaria',status:'Planejado',visibilidade:'int',objetivo:'PEI — Cadastro e aprovação Eletivas na SED (09 a 13/03)',prioridade:'Alta'},
     {data:'2026-03-13',hi:'08:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Enturmação Eletivas SED',responsavel:'Ricardo Lopes',local:'Secretaria',status:'Planejado',visibilidade:'int',objetivo:'PEI — Enturmação das Eletivas na SED (13 a 20/03)',prioridade:'Alta'},
     {data:'2026-03-16',hi:'08:00',hf:'10:00',categoria:'Rotinas Escolares',subcategoria:'Reunião Grêmio Estudantil',responsavel:'Civaldo Guilherme',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'RGE — Reunião do Grêmio Estudantil',prioridade:'Média'},
     {data:'2026-03-18',hi:'14:00',hf:'17:00',categoria:'Governança Institucional',subcategoria:'Reunião com Comunidade',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'RDH — Reunião para Composição da Comissão de Direitos Humanos',prioridade:'Alta'},
-    {data:'2026-03-23',hi:'08:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Competição de Robótica',responsavel:'Professores',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Competição de Robótica EFAF (23 a 27/03)',prioridade:'Alta'},
+    {data:'2026-03-23',hi:'08:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Competição de Robótica',responsavel:'Professores',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Competição de Robótica EM (23/03 a 10/04) — Carrinho de controle (2ª e 3ª séries)',prioridade:'Alta'},
+    {data:'2026-04-10',hi:'07:30',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Competição de Robótica',responsavel:'Civaldo Guilherme',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Encerramento Competição de Robótica EM — Carrinho de controle (2ª e 3ª séries)',prioridade:'Média'},
     // Abril
     {data:'2026-04-17',hi:'07:00',hf:'12:00',categoria:'Gestão Pedagógica',subcategoria:'Semana de Estudos Intensivos',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'SEI — Semana de Estudos Intensivos (13 a 17/04)',prioridade:'Alta'},
     {data:'2026-04-21',hi:'08:00',hf:'17:00',categoria:'Gestão Pedagógica',subcategoria:'Avaliação SARESP',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'CCL — Conselho de Classe / REP — Replanejamento (1º Bimestre)',prioridade:'Alta'},
@@ -1909,11 +1926,13 @@ function seedGestoresCalendarEvents(){
     // Julho
     {data:'2026-07-06',hi:'07:00',hf:'17:00',categoria:'Governança Institucional',subcategoria:'Planejamento Institucional',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'Encerramento 2º Bimestre (23/04 a 06/07) — 50 dias letivos',prioridade:'Crítica'},
     {data:'2026-07-22',hi:'07:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Planejamento Escolar PEI',responsavel:'Raffael Lima',local:'Sala de Gestão',status:'Planejado',visibilidade:'int',objetivo:'PEI — Planejamento Escolar / Revisão do Plano de Ação (22 e 23/07)',prioridade:'Alta'},
+    {data:'2026-07-27',hi:'07:30',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Acolhimento Inicial',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Consolidação Dinâmica 22: A escalada para o sonho (27 a 31/07) — AVA-EFAPE',prioridade:'Alta'},
     {data:'2026-07-24',hi:'07:00',hf:'17:00',categoria:'Governança Institucional',subcategoria:'Planejamento Institucional',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'Início 3º Bimestre (24/07 a 02/10) — 50 dias letivos',prioridade:'Crítica'},
     {data:'2026-07-28',hi:'07:00',hf:'12:00',categoria:'Governança Institucional',subcategoria:'Conselho de Classe',responsavel:'Gisele de Souza',local:'Sala de Gestão',status:'Planejado',visibilidade:'int',objetivo:'CCL — Conselho de Classe (Julho)',prioridade:'Alta'},
     {data:'2026-07-31',hi:'07:00',hf:'17:00',categoria:'Gestão Pedagógica',subcategoria:'Avaliação SARESP',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'REP — Replanejamento 2º Semestre',prioridade:'Alta'},
     // Agosto
     {data:'2026-08-07',hi:'07:00',hf:'12:00',categoria:'Gestão Pedagógica',subcategoria:'Semana de Estudos Intensivos',responsavel:'Gisele de Souza',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'SEI — Semana de Estudos Intensivos (03 a 07/08)',prioridade:'Alta'},
+    {data:'2026-08-03',hi:'08:00',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Formação Clubes Juvenis',responsavel:'Civaldo Guilherme',local:'Escola',status:'Planejado',visibilidade:'int',objetivo:'PEI — Formação e apresentação do novo cardápio dos Clubes Juvenis/Eletivas (03 a 07/08)',prioridade:'Alta'},
     {data:'2026-08-10',hi:'13:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Feirão de Eletivas',responsavel:'Civaldo Guilherme',local:'Pátio/Quadra',status:'Planejado',visibilidade:'pub',objetivo:'PEI — Novo Ciclo Feirão das Eletivas (10 a 14/08)',prioridade:'Alta'},
     {data:'2026-08-17',hi:'08:00',hf:'17:00',categoria:'Rotinas Escolares',subcategoria:'Cadastro Eletivas SED',responsavel:'Ricardo Lopes',local:'Secretaria',status:'Planejado',visibilidade:'int',objetivo:'PEI — Cadastro de Eletivas na SED (17 a 28/08)',prioridade:'Alta'},
     {data:'2026-08-17',hi:'07:00',hf:'12:00',categoria:'Rotinas Escolares',subcategoria:'Acolhimento Inicial',responsavel:'Raffael Lima',local:'Escola',status:'Planejado',visibilidade:'pub',objetivo:'ACT — Acolhimento / EVC — Evento Cultural',prioridade:'Alta'},
